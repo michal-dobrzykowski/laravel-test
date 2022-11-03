@@ -16,3 +16,9 @@ RUN composer install \
 
 COPY . .
 RUN composer dump-autoload
+
+RUN php artisan optimize:clear
+
+CMD php artisan serve --host=0.0.0.0 --port=8080
+
+EXPOSE 8080
