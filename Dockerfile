@@ -6,6 +6,11 @@ RUN curl -sS https://getcomposer.org/installer​ | php -- \
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
+EXPOSE 8080
+
+ENV HOST=0.0.0.0
+ENV PORT=8080
+
 WORKDIR /app
 COPY . .
 RUN composer install
